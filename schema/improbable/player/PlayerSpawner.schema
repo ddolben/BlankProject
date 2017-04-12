@@ -1,0 +1,10 @@
+package improbable.player;
+
+type SpawnPlayerRequest {}
+type SpawnPlayerResponse {}
+
+component PlayerSpawner {
+  id = 1103;
+
+  command SpawnPlayerResponse spawn_player(SpawnPlayerRequest);
+}

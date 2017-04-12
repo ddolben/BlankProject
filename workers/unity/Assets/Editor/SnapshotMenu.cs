@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using Assets.EntityTemplates;
+﻿using Assets.EntityTemplates;
 using Improbable;
 using Improbable.Worker;
-using UnityEngine;
 using JetBrains.Annotations;
+using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
+using UnityEngine;
 
 public class SnapshotMenu : MonoBehaviour
 {
@@ -19,7 +19,8 @@ public class SnapshotMenu : MonoBehaviour
         var snapshotEntities = new Dictionary<EntityId, SnapshotEntity>();
         var currentEntityId = 1;
 
-        snapshotEntities.Add(new EntityId(currentEntityId++), ExampleEntityTemplate.GenerateExampleSnapshotEntityTemplate());
+		snapshotEntities.Add(new EntityId(currentEntityId++),
+			PlayerSpawnerTemplate.GeneratePlayerSpawnerTemplate());
 
         SaveSnapshot(snapshotEntities);
     }

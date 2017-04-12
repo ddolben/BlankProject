@@ -1,9 +1,18 @@
 package improbable.general;
 
+// Represents a Quaternion, but called Rotation to remove type ambiguity.
+type Rotation {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+    float w = 4;
+}
+
 component WorldTransform {
     // Schema file ID, unique within the project
     id = 1000;
 
-	// Entity's true transform within the simulation
+    // Entity's true transform within the simulation
     EntityPosition position = 1;
+    Rotation rotation = 2;
 }

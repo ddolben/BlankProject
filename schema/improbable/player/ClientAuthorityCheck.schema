@@ -1,0 +1,6 @@
+package improbable.player;
+
+// Used to check whether a particular client has authority over an entity.
+component ClientAuthorityCheck {
+  id = 1101;
+}
