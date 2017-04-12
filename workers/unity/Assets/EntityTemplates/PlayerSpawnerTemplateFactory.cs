@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.EntityTemplates
 {
-	public class PlayerSpawnerTemplate {
+	public class PlayerSpawnerTemplateFactory {
 		public static SnapshotEntity GeneratePlayerSpawnerTemplate() {
 			var playerSpawnerTemplate = new SnapshotEntity { Prefab = "PlayerSpawner" };
 

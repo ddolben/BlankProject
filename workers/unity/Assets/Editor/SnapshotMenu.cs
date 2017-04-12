@@ -20,7 +20,7 @@ public class SnapshotMenu : MonoBehaviour
         var currentEntityId = 1;
 
 		snapshotEntities.Add(new EntityId(currentEntityId++),
-			PlayerSpawnerTemplate.GeneratePlayerSpawnerTemplate());
+			PlayerSpawnerTemplateFactory.GeneratePlayerSpawnerTemplate());
 
         SaveSnapshot(snapshotEntities);
     }
