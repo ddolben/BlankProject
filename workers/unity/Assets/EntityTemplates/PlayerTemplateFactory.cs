@@ -1,4 +1,5 @@
-﻿using Improbable.General;
+﻿using Assets.Gamelogic;
+using Improbable.General;
 using Improbable.Math;
 using Improbable.Player;
 using Improbable.Unity.Core.Acls;
@@ -15,11 +16,13 @@ namespace Assets.EntityTemplates
 				new Coordinates(0, 0.5f, 0),
 				new Rotation(0, 0, 0, 1)));
 			playerTemplate.Add(new ClientAuthorityCheck.Data());
+			playerTemplate.Add(new ClientConnection.Data(Settings.heartbeatTimeoutCount));
 
 			var acl = Acl.Build()
 				.SetReadAccess(CommonRequirementSets.PhysicsOrVisual)
 				.SetWriteAccess<WorldTransform>(CommonRequirementSets.SpecificClientOnly(clientWorkerId))
-				.SetWriteAccess<ClientAuthorityCheck>(CommonRequirementSets.SpecificClientOnly(clientWorkerId));
+				.SetWriteAccess<ClientAuthorityCheck>(CommonRequirementSets.SpecificClientOnly(clientWorkerId))
+				.SetWriteAccess<ClientConnection>(CommonRequirementSets.PhysicsOnly);
 			playerTemplate.SetAcl(acl);
 
 			return playerTemplate;
