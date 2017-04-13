@@ -7,7 +7,11 @@ using UnityEngine.UI;
 namespace Assets.Gamelogic
 {
     public class SplashScreenController : MonoBehaviour {
-		
+
+        // An object that will be disabled when the splash screen gets turned off. Use for
+        // displaying a scene behind the splash screen.
+        [SerializeField] private GameObject splashScene;
+
         [SerializeField] private GameObject failureWarning;
         [SerializeField] private Button connectButton;
 
@@ -52,6 +56,7 @@ namespace Assets.Gamelogic
 
         public static void HideSplashScreen() {
             instance.failureWarning.SetActive(false);
+            instance.splashScene.SetActive(false);
 
             // This will prevent ConnectionTimeout from being called by the coroutine from
             // AttemptConnection().
