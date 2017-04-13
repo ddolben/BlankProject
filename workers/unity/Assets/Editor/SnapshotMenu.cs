@@ -26,7 +26,7 @@ public class SnapshotMenu : MonoBehaviour
         // Generate a square grid of trees centered at (0,0,0), along the x-z plane.
         const int treeRowCount = 10;
         const float maxDistanceFromOrigin = 50;
-        const float distanceStep = (maxDistanceFromOrigin * 2.0f) / (float)treeRowCount;
+        const float distanceStep = (maxDistanceFromOrigin * 2.0f) / (float)(treeRowCount - 1);
         for (int y = 0; y < treeRowCount; y++) {
             for (int x = 0; x < treeRowCount; x++) {
                 Coordinates location = new Coordinates(
