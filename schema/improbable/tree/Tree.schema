@@ -1,0 +1,12 @@
+package improbable.tree;
+
+enum TreeStatus {
+  IDLE = 0;
+  HIT = 1;
+}
+
+component TreeState {
+  id = 1201;
+
+  TreeStatus status = 1;
+}

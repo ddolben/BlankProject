@@ -1,5 +1,6 @@
 ﻿using Improbable.General;
 using Improbable.Math;
+using Improbable.Tree;
 using Improbable.Worker;
 using Improbable.Unity.Core.Acls;
 
@@ -12,10 +13,12 @@ namespace Assets.EntityTemplates
             treeTemplate.Add(new WorldTransform.Data(
                     coordinates,
                     new Rotation(0, 0, 0, 1)));
+            treeTemplate.Add(new TreeState.Data(TreeStatus.IDLE));
 
             var acl = Acl.Build()
                 .SetReadAccess(CommonRequirementSets.PhysicsOrVisual)
-                .SetWriteAccess<WorldTransform>(CommonRequirementSets.PhysicsOnly);
+                .SetWriteAccess<WorldTransform>(CommonRequirementSets.PhysicsOnly)
+                .SetWriteAccess<TreeState>(CommonRequirementSets.PhysicsOnly);
             treeTemplate.SetAcl(acl);
 
             return treeTemplate;
