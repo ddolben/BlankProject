@@ -30,14 +30,18 @@ public class Bootstrap : MonoBehaviour
 
                 Application.targetFrameRate = targetFramerate;
                 Time.fixedDeltaTime = 1.0f / fixedFramerate;
+
+				SpatialOS.Connect(gameObject);
                 break;
             case WorkerPlatform.UnityClient:
                 SpatialOS.OnConnected += OnConnected;
                 break;
         }
-
-        SpatialOS.Connect(gameObject);
     }
+
+	public void AttemptToConnectClient() {
+		SpatialOS.Connect(gameObject);
+	}
 
     public void OnConnected() {
 		FindPlayerSpawnerEntity(RequestPlayerSpawn);
