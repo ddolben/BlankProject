@@ -1,5 +1,6 @@
 ﻿using Assets.EntityTemplates;
 using Improbable;
+using Improbable.Math;
 using Improbable.Worker;
 using JetBrains.Annotations;
 using System.Collections.Generic;
@@ -21,6 +22,21 @@ public class SnapshotMenu : MonoBehaviour
 
 		snapshotEntities.Add(new EntityId(currentEntityId++),
 			PlayerSpawnerTemplateFactory.GeneratePlayerSpawnerTemplate());
+
+        // Generate a square grid of trees centered at (0,0,0), along the x-z plane.
+        const int treeRowCount = 10;
+        const float maxDistanceFromOrigin = 50;
+        const float distanceStep = (maxDistanceFromOrigin * 2.0f) / (float)treeRowCount;
+        for (int y = 0; y < treeRowCount; y++) {
+            for (int x = 0; x < treeRowCount; x++) {
+                Coordinates location = new Coordinates(
+                    (x * distanceStep) - maxDistanceFromOrigin,
+                    0,
+                    (y * distanceStep) - maxDistanceFromOrigin);
+                snapshotEntities.Add(new EntityId(currentEntityId++),
+                    TreeTemplateFactory.GenerateTreeTemplate(location));
+            }
+        }
 
         SaveSnapshot(snapshotEntities);
     }
